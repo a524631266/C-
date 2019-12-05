@@ -26,6 +26,52 @@ void bubbleSort(T a[], int n) {
     };
 };
 
+
+
+class SimpleArray{
+    private:
+        int n = 0;
+        int *arr ;
+    public:
+        SimpleArray(int n):n(n) {
+            arr = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                // std::cout << random() << std::endl;
+                arr[i] = (int) random() / 1000000;
+            }
+        }
+        int * getArray(){
+            return arr;
+        }
+        void printff() {
+            for (int i = 0; i < n; i++)
+            {
+                std::cout << arr[i] << std::endl;
+            }
+        };
+        int * getarr() {
+            return arr;
+        }
+        void bubbleSort(){
+            clock_t start = clock();
+            // std::cout << "start time" << start << std::endl;
+           int hasChange = true;
+            while(hasChange){
+                hasChange = false;
+                for (int i = 0; i < n - 1; i++)
+                {
+                    if (arr[i] > arr[i+1]) {
+                        mySwap(arr[i],arr[i+1]);
+                        hasChange = true;
+                    }
+                }
+            };
+            clock_t end = clock();
+             std::cout << "cost time :" << (end - start) / 1000  << "ms"<< std::endl;
+        }
+};
+
 /**
  *   起泡排序核心思想 2
  *  由于在每次迭代的时候只要规模减一（每次都能够使得规模减一次）
@@ -75,11 +121,14 @@ int main(int argc, char const *argv[])
     /* code */
     // int a = 10, b = 11;
     // mySwap(a,b);
-    int a[] = {2,3,100,6,7,34,454,4,233,23};
-    bubbleSort3(a, 10);
-    for(int aa : a)
-    {
-        std::cout << aa << std::endl;
-    }
+    // int a[] = {2,3,100,6,7,34,454,4,233,23};
+    // bubbleSort3(a, 10);
+    // for(int aa : a)
+    // {
+    //     std::cout << aa << std::endl;
+    // }
+
+    SimpleArray s = SimpleArray(10000);
+    s.bubbleSort();
     return 0;
 }
