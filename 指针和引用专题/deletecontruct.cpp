@@ -22,7 +22,8 @@ public:
 
 int main(int argc, char const *argv[])
 {
-    Abc ab = Abc();
-    ab.print();
+    Abc().print();
+    // Abc ab = Abc();
+    // ab.print();
     return 0;
 }
