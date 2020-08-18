@@ -5,7 +5,7 @@ private:
     int a;
 public:
     // 删除copy构造函数
-    // Abc(const Abc&) = delete;
+    Abc(const Abc&) = delete;
     // Abc& operator=(const Abc&) = delete;
     Abc(){
         a = 1;
