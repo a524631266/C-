@@ -19,11 +19,20 @@ public:
         cout << "destroy an object Abc" << endl;
     }
 };
+// 2. copy构造已经去除,不能简单的传递对象
+void print(Abc abc) {
+    abc.print();
+};
+
 
 int main(int argc, char const *argv[])
 {
+    // 可以使用
     Abc().print();
-    // Abc ab = Abc();
+    // 1. 不可以赋值copy
+    Abc ab = Abc();
     // ab.print();
+    // 2. 不能传递,因为会涉及copy构造
+    print(Abc(1));
     return 0;
 }
